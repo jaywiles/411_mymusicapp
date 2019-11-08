@@ -24,9 +24,9 @@ class App extends Component {
 				<SignIn />
 			</section>
 
-			<section className="">
+			{/* <section className="">
 				<Dashboard />
-			</section>
+			</section> */}
 		</div>
 	)}
 }
