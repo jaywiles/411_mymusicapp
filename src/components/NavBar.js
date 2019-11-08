@@ -1,4 +1,5 @@
-import React, {Component} from 'react';
+import React, { Component } from 'react';
+import { AppBar, Toolbar, Typography, Button, } from '@material-ui/core';
 
 class NavBar extends Component {
 
@@ -11,10 +12,13 @@ class NavBar extends Component {
 
 	render() { return (
 		<div className="nav-bar">
-			<p>NavBar</p>
+			<AppBar position="static">
+				<Toolbar>
+					<Typography variant="h6">FML.fm</Typography>
+				</Toolbar>
+			</AppBar>
 		</div>
 	)}
-  
 }
 
 export default NavBar;

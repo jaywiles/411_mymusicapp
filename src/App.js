@@ -1,8 +1,9 @@
 import React, {Component} from 'react';
 import './App.css';
-import Dashboard from './components/Dashboard';
 import NavBar from './components/NavBar';
+import Dashboard from './components/Dashboard';
 // import {Button, TextField} from '@material-ui/core';
+
 
 class App extends Component {
 	
@@ -19,7 +20,7 @@ class App extends Component {
 				<NavBar />
 			</header>
 
-			<section className="">
+			<section>
 				<Dashboard />
 			</section>
 		</div>
