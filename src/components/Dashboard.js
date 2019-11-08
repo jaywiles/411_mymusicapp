@@ -1,4 +1,5 @@
 import React, {Component} from 'react';
+import SliderCard from './SliderCard'
 
 class Dashboard extends Component {
 
