@@ -20,11 +20,8 @@ class Dashboard extends Component {
 
 	goOnline = () => {
 		let msg = 'Your application is offline. You won\'t be able to share or stream music to other devices.'
-		let status = this.state.online === true ? false : true
 
-		this.setState({
-			online: status
-		})
+		this.setState({ online: !this.state.online })
 
 		if (this.state.online === false) {
 			this.addNotification(msg)
@@ -42,11 +39,11 @@ class Dashboard extends Component {
 							label="Online"
 						/>
 					</FormGroup>
-					<h3>Notifications:</h3>
-					{this.state.notifications.map((item, index) => (
-						<p key={index}>{item}</p>
-					))}
-				</div>	
+				</div>
+				<h3>Notifications:</h3>
+				{this.state.notifications.map((item, index) => (
+					<p key={index}>{item}</p>
+				))}
 			</div>
 		)
 	}
