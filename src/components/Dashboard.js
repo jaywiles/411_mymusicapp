@@ -15,22 +15,19 @@ class Dashboard extends Component {
 	}
 
 	onlineChange = () => {
-		//let status = this.state.online === true ? false : true
-		//let newNotification = [...this.state.notifications, notification]
-		//console.log(this.state.notifications)
-		// this.setState({
-		// 	online: status
-		// })
-		// if (this.state.online === false) {
-		// 	this.setState({
-		// 		notifications: newNotification
-		// 		// console.log("Your application is offline. You won't be able to share or stream music to other devices.")
-		// 	})
-		// }
-		const notification = 'Your application is offline. You won\'t be able to share or stream music to other devices.'
+    let notification = 'Your application is offline. You won\'t be able to share or stream music to other devices.'
+    let status = this.state.online === true ? false : true
+		let newNotification = [...this.state.notifications, notification]
+		// console.log(this.state.notifications)
 		this.setState({
-			notifications: [...this.state.notifications, notification]
+			online: status
 		})
+		if (this.state.online === false) {
+			this.setState({
+				notifications: newNotification
+				// console.log("Your application is offline. You won't be able to share or stream music to other devices.")
+			})
+		}
 	}
 
 	render() {
@@ -40,7 +37,7 @@ class Dashboard extends Component {
 					<FormGroup>
 						{console.log(this.state.online)}
 						<FormControlLabel
-							control={<Switch onChange={() => this.onlineChange()} />}
+							control={<Switch checked={this.state.online} onChange={() => this.onlineChange(notification)} />}
 							label="Online"
 						/>
 						{/* <h3>Test: </h3>
