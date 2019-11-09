@@ -13,12 +13,11 @@ class App extends Component {
 		}
 	}
 
-	signIn () {
+	signIn = () => {
 		this.setState({ loggedIn: true })
 	}
 
 	render() {
-		
 		return (
 			<div id="container">
 				<header>
@@ -30,7 +29,7 @@ class App extends Component {
 						<Dashboard />
 					)}
 					{ !this.state.loggedIn && (
-						<SignIn />
+						<SignIn signIn={this.signIn} />
 					)}
 				</section>
 			</div>
