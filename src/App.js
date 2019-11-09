@@ -1,7 +1,8 @@
 import React, {Component} from 'react';
 import './App.css';
 import NavBar from './components/NavBar';
-import SignIn from './components/SignIn'
+import SignIn from './components/SignIn';
+import Dashboard from './components/Dashboard';
 import { Button, TextField } from '@material-ui/core';
 
 
@@ -14,15 +15,7 @@ class App extends Component {
   }
 
   render() {
-    if (!this.state.loggedIn) {
-      return (
-        <div id="false-container">
-          <section className="login-container">
-            <SignIn />
-          </section>
-        </div>
-      )
-    } else {
+    if (this.state.loggedIn) {
       return (
         <div id="true-container">
         <header>
@@ -33,6 +26,14 @@ class App extends Component {
           <Dashboard />
         </section>
       </div>
+      )
+    } else {
+      return (
+        <div id="false-container">
+          <section className="login-container">
+            <SignIn />
+          </section>
+        </div>
       )
     }
   }
