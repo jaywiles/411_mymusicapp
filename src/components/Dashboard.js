@@ -7,25 +7,25 @@ class Dashboard extends Component {
 	constructor(props) {
 		super(props);
 		this.state = {
-			someString: '',
 			notifications: [],
 			online: true,
-			testing: 'this sucks',
 		};
 	}
 
-	addNotification = (notification) => {
-		this.setState({ notifications: [...this.state.notifications, notification] })
+	// this recives a string and adds or removes it based on if it is in the notifications array
+	toggleNotification = ( msg ) => {
+		let msgIndex = this.state.notifications.indexOf( msg )
+
+		if ( this.state.notifications.includes( msg ) ) {
+			this.state.notifications.splice( msgIndex, 1 )
+		} else {
+			this.setState({ notifications: [...this.state.notifications, msg] })
+		}
 	}
 
 	goOnline = () => {
-		let msg = "Your application is offline. You won't be able to share or stream music to other devices."
-
 		this.setState({ online: !this.state.online })
-
-		if (this.state.online === true) {
-			this.addNotification(msg)
-		}
+		this.toggleNotification("Your application is offline. You won't be able to share or stream music to other devices.")
 	}
 
 	render() {
@@ -33,7 +33,6 @@ class Dashboard extends Component {
 			<div className="dashboard">
 				<div className="online-message">
 					<FormGroup>
-						{console.log(this.state.online)}
 						<FormControlLabel
 							control={
 								<Switch 
@@ -44,6 +43,15 @@ class Dashboard extends Component {
 						/>
 					</FormGroup>
 				</div>
+
+				{
+					// volume goes here
+				}
+
+				{
+					// quality goes here
+				}
+
 				<h3>Notifications:</h3>
 				{this.state.notifications.map((item, index) => (
 					<p key={index}>{item}</p>
