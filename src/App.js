@@ -14,7 +14,7 @@ class App extends Component {
   }
 
   render() {
-    if (this.state.loggedIn) {
+    // if (this.state.loggedIn) {
       return (
         <div id="true-container">
         <header>
@@ -26,36 +26,16 @@ class App extends Component {
         </section>
       </div>
       )
-    } else {
-      return (
-        <div id="false-container">
-          <section className="login-container">
-            <SignIn />
-          </section>
-        </div>
-      )
-    }
+    // } else {
+    //   return (
+    //     <div id="false-container">
+    //       <section className="login-container">
+    //         <SignIn />
+    //       </section>
+    //     </div>
+    //   )
+    // }
   }
 }
 
 export default App;
-
-
-
-
-  // {
-  // return (
-	// 	<div id="container">
-	// 		<header>
-	// 			<NavBar />
-	// 		</header>
-
-	// 		<section className="login-class">
-	// 			<SignIn />
-	// 		</section>
-
-	// 		{/* <section className="">
-	// 			<Dashboard />
-	// 		</section> */}
-	// 	</div>
-	// )}

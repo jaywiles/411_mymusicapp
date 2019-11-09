@@ -13,7 +13,7 @@ class Dashboard extends Component {
   }
   
   onlineChange = () => {
-    let online = this.state.online === true ? false : true
+    let status = this.state.online === true ? false : true
     this.setState({
       online: status
     })
@@ -21,7 +21,14 @@ class Dashboard extends Component {
 
 	render() { return (
 		<div className="dashboard">
-			<p>Dashboard</p>
+			<FormGroup>
+        <FormControlLabel
+          control={<Switch checked={this.state.online} onChange={this.onlineChange} />}
+          label="Online"
+        />
+        {console.log(this.state.online)}
+      </FormGroup>
+      <p>Dashboard</p>
 		</div>
 	)}
   
