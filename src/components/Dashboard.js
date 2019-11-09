@@ -35,7 +35,11 @@ class Dashboard extends Component {
 					<FormGroup>
 						{console.log(this.state.online)}
 						<FormControlLabel
-							control={<Switch checked={this.state.online} onChange={() => this.goOnline()} />}
+							control={
+								<Switch 
+									checked={this.state.online} 
+									onChange={this.goOnline} 
+								/>}
 							label="Online"
 						/>
 					</FormGroup>
