@@ -22,7 +22,7 @@ class Dashboard extends Component {
   offlineMessage = () => {
     if (!this.state.online) {
       return (
-        
+        <h3>Your application is offline. You won't be able to share or stream music to other devices.</h3>
       )
     }
   }
@@ -38,6 +38,7 @@ class Dashboard extends Component {
             />
             {console.log(this.state.online)}
           </FormGroup>
+          {this.offlineMessage()}
         </div>
         <p>Dashboard</p>
       </div>
