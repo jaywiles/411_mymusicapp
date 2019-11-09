@@ -19,14 +19,14 @@ class Dashboard extends Component {
 	}
 
 	goOnline = () => {
-		let msg = 'Your application is offline. You won\'t be able to share or stream music to other devices.'
+		let msg = "Your application is offline. You won't be able to share or stream music to other devices."
 		let status = this.state.online === true ? false : true
 
 		this.setState({
 			online: status
 		})
 
-		if (this.state.online === false) {
+		if (this.state.online === true) {
 			this.addNotification(msg)
 		}
 	}
