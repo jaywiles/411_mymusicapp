@@ -29,9 +29,9 @@ class App extends Component {
           <NavBar />
         </header>
 
-        {/* <section className="">
+        <section className="dashboard-container">
           <Dashboard />
-        </section> */}
+        </section>
       </div>
       )
     }
