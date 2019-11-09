@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import {AppBar, Button, TextField, Typography} from '@material-ui/core';
 
-const SignIn = props => {
+const SignIn = props => (
   	//render() { return (
 		<div>
 			<h3>Log In to FML.fm</h3>
@@ -47,6 +47,6 @@ const SignIn = props => {
 			</div>
 		</div>
     //)}
-}
+)
 
 export default SignIn;
