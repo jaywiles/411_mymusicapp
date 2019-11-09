@@ -17,6 +17,7 @@ class Dashboard extends Component {
   onlineChange = (notification) => {
     let status = this.state.online === true ? false : true
     let newNotification = [...this.state.notifications, notification]
+    let notification = "Your application is offline. You won't be able to share or stream music to other devices."
     // console.log(notification)
     this.setState({
       online: status
