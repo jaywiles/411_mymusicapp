@@ -1,14 +1,15 @@
 import React, {Component} from 'react';
+import Dashboard from './Dashboard'
 import {FormGroup, FormControlLabel, Switch} from '@material-ui/core';
 
-class Dashboard extends Component {
+class Online extends Component {
 
 	constructor(props) {
 		super(props);
 		this.state = {
       someString: '',
       // notifications: [],
-      online: true,
+      // online: true,
 		};
   }
   
@@ -28,13 +29,13 @@ class Dashboard extends Component {
   // }
 
   onlineChange = () => {
-    let status = this.state.online === true ? false : true
+    let status = this.props.online === true ? false : true
     this.setState({
       online: status
     })
-    if (this.state.online === false) {
+    if (this.props.online === false) {
       console.log('this works')
-      // this.state.notifications.push("Your application is offline. You won't be able to share or stream music to other devices.")
+      this.props.notifications.bind("Your application is offline. You won't be able to share or stream music to other devices.")
     }
   }
 
@@ -43,10 +44,10 @@ class Dashboard extends Component {
       <div className="online-container">
         <FormGroup>
           <FormControlLabel
-            control={<Switch checked={this.state.online} onChange={this.onlineChange} />}
+            control={<Switch checked={this.props.online} onChange={this.onlineChange} />}
             label="Online"
           />
-          <h3>Test: {this.state.testing}</h3>
+          {/* <h3>Test: {this.state.testing}</h3> */}
         </FormGroup>
         {/* {this.offlineMessage()} */}
       </div>
@@ -55,4 +56,4 @@ class Dashboard extends Component {
   
 }
 
-export default Dashboard;
+export default Online;
