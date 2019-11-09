@@ -9,33 +9,26 @@ class App extends Component {
 	constructor(props) {
 		super(props);
 		this.state = {
-			loggedIn: false,
+			loggedIn: true,
 		}
 	}
 
-	render() {
-		// if (this.state.loggedIn) {
-			return (
-				<div id="true-container">
-					<header>
-						<NavBar />
-					</header>
+	render() { return (
+		<div id="container">
+			<header>
+				<NavBar />
+			</header>
 
-					<section className="dashboard-container">
-						<Dashboard />
-					</section>
-				</div>
-			)
-		// } else {
-		// 	return (
-		// 		<div id="false-container">
-		// 			<section className="login-container">
-		// 				<SignIn />
-		// 			</section>
-		// 		</div>
-		// 	)
-		// }
-	}
+			<section className="dashboard">
+				{ this.state.loggedIn && (
+					<Dashboard />
+				)}
+				{ !this.state.loggedIn && (
+					<SignIn />
+				)}
+			</section>
+		</div>
+	) }
 }
 
 export default App;
