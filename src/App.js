@@ -14,29 +14,29 @@ class App extends Component {
 		}
   }
 
-  render() {
-    if (this.state.loggedIn) {
-      return (
-        <div id="true-container">
-        <header>
-          <NavBar />
-        </header>
+	render() {
+		if (this.state.loggedIn) {
+			return (
+				<div id="true-container">
+					<header>
+						<NavBar />
+					</header>
 
-        <section className="dashboard-container">
-          <Dashboard />
-        </section>
-      </div>
-      )
-    } else {
-      return (
-        <div id="false-container">
-          <section className="login-container">
-            <SignIn />
-          </section>
-        </div>
-      )
-    }
-  }
+					<section className="dashboard-container">
+						<Dashboard />
+					</section>
+				</div>
+			)
+		} else {
+			return (
+				<div id="false-container">
+					<section className="login-container">
+						<SignIn />
+					</section>
+				</div>
+			)
+		}
+	}
 }
 
 export default App;
