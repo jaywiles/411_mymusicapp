@@ -2,17 +2,6 @@ import React, {Component} from 'react';
 import {Button, TextField, Typography} from '@material-ui/core';
 
 class SignIn extends Component {
-  state = {
-    loggedIn: false,
-    // need items here...
-  }
-
-  // isLoggedIn() {
-  //   if (this.loggedIn) {
-  //     console.log('hello world')
-  //   }
-  // }
-
   render() {
     return (
       // <div>NavBar</div>
@@ -56,8 +45,6 @@ class SignIn extends Component {
       </div>
     )
   }
-
-  
 }
 
 export default SignIn;

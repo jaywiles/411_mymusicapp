@@ -6,7 +6,6 @@ import { Button, TextField } from '@material-ui/core';
 
 
 class App extends Component {
-	
   constructor(props) {
 		super(props);
 		this.state = {
@@ -14,22 +13,49 @@ class App extends Component {
 		}
   }
 
-  render()
-  { return (
-		<div id="container">
-			<header>
-				<NavBar />
-			</header>
+  render() {
+    if (!this.state.loggedIn) {
+      return (
+        <div id="false-container">
+          <section className="login-container">
+            <SignIn />
+          </section>
+        </div>
+      )
+    } else {
+      return (
+        <div id="true-container">
+        <header>
+          <NavBar />
+        </header>
 
-			<section className="login-class">
-				<SignIn />
-			</section>
-
-			{/* <section className="">
-				<Dashboard />
-			</section> */}
-		</div>
-	)}
+        {/* <section className="">
+          <Dashboard />
+        </section> */}
+      </div>
+      )
+    }
+  }
 }
 
 export default App;
+
+
+
+
+  // {
+  // return (
+	// 	<div id="container">
+	// 		<header>
+	// 			<NavBar />
+	// 		</header>
+
+	// 		<section className="login-class">
+	// 			<SignIn />
+	// 		</section>
+
+	// 		{/* <section className="">
+	// 			<Dashboard />
+	// 		</section> */}
+	// 	</div>
+	// )}
