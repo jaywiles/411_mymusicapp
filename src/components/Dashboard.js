@@ -17,7 +17,7 @@ class Dashboard extends Component {
   onlineChange = (notification) => {
     let status = this.state.online === true ? false : true
     let newNotification = [...this.state.notifications, notification]
-    console.log(notification)
+    // console.log(notification)
     this.setState({
       online: status
     })
