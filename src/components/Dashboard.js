@@ -20,7 +20,6 @@ class Dashboard extends Component {
 
 	goOnline = () => {
 		let msg = "Your application is offline. You won't be able to share or stream music to other devices."
-		let status = this.state.online === true ? false : true
 
 		this.setState({ online: !this.state.online })
 
@@ -36,7 +35,11 @@ class Dashboard extends Component {
 					<FormGroup>
 						{console.log(this.state.online)}
 						<FormControlLabel
-							control={<Switch checked={this.state.online} onChange={() => this.goOnline()} />}
+							control={
+								<Switch 
+									checked={this.state.online} 
+									onChange={this.goOnline} 
+								/>}
 							label="Online"
 						/>
 					</FormGroup>
