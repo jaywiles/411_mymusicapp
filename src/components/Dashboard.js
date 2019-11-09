@@ -14,23 +14,21 @@ class Dashboard extends Component {
 		};
 	}
 
-	onlineChange = () => {
-		//let status = this.state.online === true ? false : true
-		//let newNotification = [...this.state.notifications, notification]
-		//console.log(this.state.notifications)
-		// this.setState({
-		// 	online: status
-		// })
-		// if (this.state.online === false) {
-		// 	this.setState({
-		// 		notifications: newNotification
-		// 		// console.log("Your application is offline. You won't be able to share or stream music to other devices.")
-		// 	})
-		// }
-		const notification = 'Your application is offline. You won\'t be able to share or stream music to other devices.'
+	addNotification = (notification) => {
+		this.setState({ notifications: [...this.state.notifications, notification] })
+	}
+
+	goOnline = () => {
+		let msg = 'Your application is offline. You won\'t be able to share or stream music to other devices.'
+		let status = this.state.online === true ? false : true
+
 		this.setState({
-			notifications: [...this.state.notifications, notification]
+			online: status
 		})
+
+		if (this.state.online === false) {
+			this.addNotification(msg)
+		}
 	}
 
 	render() {
@@ -40,24 +38,15 @@ class Dashboard extends Component {
 					<FormGroup>
 						{console.log(this.state.online)}
 						<FormControlLabel
-							control={<Switch onChange={() => this.onlineChange()} />}
+							control={<Switch checked={this.state.online} onChange={() => this.goOnline()} />}
 							label="Online"
 						/>
-						{/* <h3>Test: </h3>
-							{this.state.notifications.map(note =>{
-								console.log(note)
-							return (
-								<p>{note}</p>
-							)
-						})} */}
 					</FormGroup>
-					
+					<h3>Notifications:</h3>
 					{this.state.notifications.map((item, index) => (
 						<p key={index}>{item}</p>
 					))}
-				</div>
-				<p>Dashboard</p>
-				
+				</div>	
 			</div>
 		)
 	}
