@@ -19,18 +19,30 @@ class Dashboard extends Component {
     })
   }
 
-	render() { return (
-		<div className="dashboard">
-			<FormGroup>
-        <FormControlLabel
-          control={<Switch checked={this.state.online} onChange={this.onlineChange} />}
-          label="Online"
-        />
-        {console.log(this.state.online)}
-      </FormGroup>
-      <p>Dashboard</p>
-		</div>
-	)}
+  offlineMessage = () => {
+    if (!this.state.online) {
+      return (
+        
+      )
+    }
+  }
+
+	render() {
+    return (
+      <div className="dashboard">
+        <div className="online-message">
+          <FormGroup>
+            <FormControlLabel
+              control={<Switch checked={this.state.online} onChange={this.onlineChange} />}
+              label="Online"
+            />
+            {console.log(this.state.online)}
+          </FormGroup>
+        </div>
+        <p>Dashboard</p>
+      </div>
+    )
+  }
   
 }
 
