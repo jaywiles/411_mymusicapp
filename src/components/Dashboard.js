@@ -51,6 +51,7 @@ class Dashboard extends Component {
 							)
 						})} */}
 					</FormGroup>
+					
 					{this.state.notifications.map((item, index) => (
 						<p key={index}>{item}</p>
 					))}
