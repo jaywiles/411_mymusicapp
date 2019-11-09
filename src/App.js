@@ -13,22 +13,25 @@ class App extends Component {
 		}
 	}
 
-	render() { return (
-		<div id="container">
-			<header>
-				<NavBar />
-			</header>
+	render() {
+		
+		return (
+			<div id="container">
+				<header>
+					<NavBar />
+				</header>
 
-			<section className="dashboard">
-				{ this.state.loggedIn && (
-					<Dashboard />
-				)}
-				{ !this.state.loggedIn && (
-					<SignIn />
-				)}
-			</section>
-		</div>
-	) }
+				<section className="dashboard">
+					{ this.state.loggedIn && (
+						<Dashboard />
+					)}
+					{ !this.state.loggedIn && (
+						<SignIn />
+					)}
+				</section>
+			</div>
+		)
+	}
 }
 
 export default App;
