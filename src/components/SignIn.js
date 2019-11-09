@@ -7,11 +7,11 @@ class SignIn extends Component {
     // need items here...
   }
 
-  isLoggedIn() {
-    if (this.loggedIn) {
-      console.log('hello world')
-    }
-  }
+  // isLoggedIn() {
+  //   if (this.loggedIn) {
+  //     console.log('hello world')
+  //   }
+  // }
 
   render() {
     return (
