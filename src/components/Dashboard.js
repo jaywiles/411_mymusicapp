@@ -1,4 +1,5 @@
 import React, {Component} from 'react';
+import Online from './Online';
 import {FormGroup, FormControlLabel, Switch} from '@material-ui/core';
 
 class Dashboard extends Component {
@@ -9,28 +10,21 @@ class Dashboard extends Component {
       someString: '',
       notifications: [],
       online: true,
+      testing: 'this sucks',
 		};
   }
   
-  onlineChange = () => {
-    let status = this.state.online === true ? false : true
-    this.setState({
-      online: status
-    })
-  }
 
-	render() { return (
-		<div className="dashboard">
-			<FormGroup>
-        <FormControlLabel
-          control={<Switch checked={this.state.online} onChange={this.onlineChange} />}
-          label="Online"
-        />
-        {console.log(this.state.online)}
-      </FormGroup>
-      <p>Dashboard</p>
-		</div>
-	)}
+	render() {
+    return (
+      <div className="dashboard">
+        <div className="online-message">
+          <Online />
+        </div>
+        <p>Dashboard</p>
+      </div>
+    )
+  }
   
 }
 
