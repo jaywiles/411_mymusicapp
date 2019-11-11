@@ -10,7 +10,7 @@ class Dashboard extends Component {
 			someString: '',
 			notifications: [],
 			online: true,
-			testing: 'this sucks',
+			testing: 'this test is working',
 		};
 	}
 
