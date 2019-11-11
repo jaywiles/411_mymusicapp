@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 // import Online from './Online';
-import {FormGroup, FormControlLabel, Switch} from '@material-ui/core';
+import {FormControl, FormControlLabel, FormGroup, InputLabel, MenuItem, Select, Switch, Typography} from '@material-ui/core';
 
 class Dashboard extends Component {
 
@@ -8,7 +8,8 @@ class Dashboard extends Component {
 		super(props);
 		this.state = {
 			notifications: [],
-			online: true,
+      online: true,
+      quality: null,
 		};
 	}
 
@@ -26,11 +27,21 @@ class Dashboard extends Component {
 	goOnline = () => {
 		this.setState({ online: !this.state.online })
 		this.toggleNotification("Your application is offline. You won't be able to share or stream music to other devices.")
+  }
+  
+  // put slider here??
+
+	soundQuality = () => {
+    this.setState({ quality: this.state.quality })
+    console.log(this.state.quality)
+    this.toggleNotification("Music quality is degraded. Increase quality if your connection allows it.")
 	}
 
 	render() {
 		return (
 			<div className="dashboard">
+        <h1>Online Mode</h1>
+        <h3>Is this application connected to the internet?</h3>
 				<div className="online-switch">
 					<FormGroup>
 						<FormControlLabel
@@ -51,9 +62,19 @@ class Dashboard extends Component {
 				</div>
 
 				<div className="quality-selection">
-				{
-					// quality goes here
-				}
+          <h1>Sound Quality</h1>
+          <h3>Manually control the music quality in the event of a poor connection.</h3>
+					<FormControl>
+					<InputLabel>{this.state.quality}</InputLabel>
+					<Select
+						value={this.state.quality}
+            onChange={this.soundQuality}
+					>
+						<MenuItem value={1}>Low</MenuItem>
+						<MenuItem value={2}>Normal</MenuItem>
+						<MenuItem value={3}>High</MenuItem>
+					</Select>
+					</FormControl>
 				</div>
 
 				<div className="notifications">
