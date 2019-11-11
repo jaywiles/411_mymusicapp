@@ -9,12 +9,12 @@ class App extends Component {
 	constructor(props) {
 		super(props);
 		this.state = {
-			loggedIn: true,
+			loggedIn: false,
 		}
 	}
 
-	signIn = () => {
-		this.setState({ loggedIn: true })
+	toggleSignIn = () => {
+		this.setState({ loggedIn: !this.state.loggedIn })
 	}
 
 	render() {
@@ -29,7 +29,7 @@ class App extends Component {
 						<Dashboard />
 					)}
 					{ !this.state.loggedIn && (
-						<SignIn signIn={this.signIn} />
+						<SignIn signIn={this.toggleSignIn} />
 					)}
 				</section>
 			</div>
