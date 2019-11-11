@@ -31,7 +31,7 @@ class Dashboard extends Component {
 	render() {
 		return (
 			<div className="dashboard">
-				<div className="online-message">
+				<div className="online-switch">
 					<FormGroup>
 						<FormControlLabel
 							control={
@@ -44,18 +44,24 @@ class Dashboard extends Component {
 					</FormGroup>
 				</div>
 
+				<div className="volume-slider">
 				{
 					// volume goes here
 				}
+				</div>
 
+				<div className="quality-selection">
 				{
 					// quality goes here
 				}
+				</div>
 
-				<h3>Notifications:</h3>
-				{this.state.notifications.map((item, index) => (
-					<p key={index}>{item}</p>
-				))}
+				<div className="notifications">
+					<h3>Notifications:</h3>
+					{this.state.notifications.map((item, index) => (
+						<p key={index}>{item}</p>
+					))}
+				</div>				
 			</div>
 		)
 	}
