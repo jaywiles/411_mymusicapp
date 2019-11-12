@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 // import Online from './Online';
-import {FormControl, FormControlLabel, FormGroup, InputLabel, MenuItem, Select, Switch, Typography} from '@material-ui/core';
+import {FormControl, FormControlLabel, FormGroup, InputLabel, MenuItem, Select, Switch, } from '@material-ui/core';
 
 class Dashboard extends Component {
 
@@ -8,8 +8,8 @@ class Dashboard extends Component {
 		super(props);
 		this.state = {
 			notifications: [],
-      online: true,
-      quality: null,
+			online: true,
+			quality: 'normal',
 		};
 	}
 
@@ -23,25 +23,38 @@ class Dashboard extends Component {
 			this.setState({ notifications: [...this.state.notifications, msg] })
 		}
 	}
+	addNotification = ( msg ) => {
+		this.setState({ notifications: [...this.state.notifications, msg] })
+	}
+	removeNotification = ( msg ) => {
+		let msgIndex = this.state.notifications.indexOf( msg )
+		this.state.notifications.splice( msgIndex, 1 )
+	}
 
 	goOnline = () => {
 		this.setState({ online: !this.state.online })
 		this.toggleNotification("Your application is offline. You won't be able to share or stream music to other devices.")
-  }
-  
-  // put slider here??
+	}
+	
+	// put slider here??
 
-	soundQuality = () => {
-    this.setState({ quality: this.state.quality })
-    console.log(this.state.quality)
-    this.toggleNotification("Music quality is degraded. Increase quality if your connection allows it.")
+	soundQuality = ( event ) => {
+		this.setState({ quality: event.target.value })
+
+		const msg = "Music quality is degraded. Increase quality if your connection allows it."
+
+		if ( this.state.quality === 'low' ) {
+			this.addNotification( msg )
+		} else {
+			this.removeNotification( msg )
+		}
 	}
 
 	render() {
 		return (
 			<div className="dashboard">
-        <h1>Online Mode</h1>
-        <h3>Is this application connected to the internet?</h3>
+				<h1>Online Mode</h1>
+				<h3>Is this application connected to the internet?</h3>
 				<div className="online-switch">
 					<FormGroup>
 						<FormControlLabel
@@ -62,18 +75,17 @@ class Dashboard extends Component {
 				</div>
 
 				<div className="quality-selection">
-          <h1>Sound Quality</h1>
-          <h3>Manually control the music quality in the event of a poor connection.</h3>
+					<h1>Sound Quality</h1>
+					<h3>Manually control the music quality in the event of a poor connection.</h3>
 					<FormControl>
-					<InputLabel>{this.state.quality}</InputLabel>
-					<Select
-						value={this.state.quality}
-            onChange={this.soundQuality}
-					>
-						<MenuItem value={1}>Low</MenuItem>
-						<MenuItem value={2}>Normal</MenuItem>
-						<MenuItem value={3}>High</MenuItem>
-					</Select>
+						<InputLabel>{this.state.quality}</InputLabel>
+						<Select
+							value={this.state.quality}
+							onChange={this.soundQuality}>
+							<MenuItem value={'low'}>Low</MenuItem>
+							<MenuItem value={'normal'}>Normal</MenuItem>
+							<MenuItem value={'high'}>High</MenuItem>
+						</Select>
 					</FormControl>
 				</div>
 
