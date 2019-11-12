@@ -15,7 +15,7 @@ class Dashboard extends Component {
 
 	// this recives a string and adds or removes it based on if it is in the notifications array
 	toggleNotification = ( msg ) => {
-		let msgIndex = this.state.notifications.indexOf( msg )
+		const msgIndex = this.state.notifications.indexOf( msg )
 
 		if ( this.state.notifications.includes( msg ) ) {
 			this.state.notifications.splice( msgIndex, 1 )
@@ -27,11 +27,11 @@ class Dashboard extends Component {
 		this.setState({ notifications: [...this.state.notifications, msg] })
 	}
 	removeNotification = ( msg ) => {
-		let msgIndex = this.state.notifications.indexOf( msg )
+		const msgIndex = this.state.notifications.indexOf( msg )
 		this.state.notifications.splice( msgIndex, 1 )
 	}
 
-	goOnline = () => {
+	toggleOnline = () => {
 		this.setState({ online: !this.state.online })
 		this.toggleNotification("Your application is offline. You won't be able to share or stream music to other devices.")
 	}
@@ -43,9 +43,10 @@ class Dashboard extends Component {
 
 		const msg = "Music quality is degraded. Increase quality if your connection allows it."
 
-		if ( this.state.quality === 'low' ) {
+		if ( (event.target.value === 'low') && !this.state.notifications.includes( msg ) ) {
 			this.addNotification( msg )
-		} else {
+		}
+		if ( (event.target.value !== 'low') && this.state.notifications.includes( msg ) ) {
 			this.removeNotification( msg )
 		}
 	}
@@ -61,7 +62,7 @@ class Dashboard extends Component {
 							control={
 								<Switch 
 									checked={this.state.online} 
-									onChange={this.goOnline} 
+									onChange={this.toggleOnline} 
 								/>}
 							label="Online"
 						/>
