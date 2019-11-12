@@ -8,7 +8,7 @@ const SoundQuality = props => (
 		<h6>Manually control the music quality in the event of a poor connection.</h6>
 		<div className="m-t">
 			<FormControl>
-				<InputLabel>{props.qualityState}</InputLabel>
+				{/* <InputLabel>{props.qualityState}</InputLabel> */}
 				<Select
 					value={props.qualityState}
 					onChange={props.qualityFunc}>
