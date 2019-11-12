@@ -3,13 +3,11 @@ import './App.css';
 import NavBar from './components/NavBar';
 import SignIn from './components/SignIn';
 import Dashboard from './components/Dashboard';
-// import { Button, TextField } from '@material-ui/core';
 
 class App extends Component {
 	constructor(props) {
 		super(props);
 		this.state = {
-			// loggedIn: false,
 			loggedIn: true,
 		}
 	}
@@ -25,7 +23,7 @@ class App extends Component {
 					<NavBar />
 				</header>
 
-				<section className="dashboard">
+				<section className="dashboard trim gutter">
 					{ this.state.loggedIn && (
 						<Dashboard />
 					)}

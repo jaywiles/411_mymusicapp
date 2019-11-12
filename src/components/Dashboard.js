@@ -10,6 +10,7 @@ class Dashboard extends Component {
 		this.state = {
 			notifications: [],
 			online: true,
+			volume: 10,
 			quality: 'normal',
 		};
 	}
@@ -36,11 +37,13 @@ class Dashboard extends Component {
 		this.setState({ online: !this.state.online })
 
 		const msg = "Your application is offline. You won't be able to share or stream music to other devices."
-		
+
 		this.toggleNotification( msg )
 	}
 	
 	volumeSlider = () => {
+
+		// Slider stuff
 
 	}
 
@@ -59,7 +62,7 @@ class Dashboard extends Component {
 
 	render() {
 		return (
-			<div className="dashboard wrapper row">
+			<div className="dashboard wrapper">
 
 				<div className="dashboard-control-row">
 					
@@ -86,7 +89,7 @@ class Dashboard extends Component {
 
 				</div> {/* END dashboard-control-row */}
 
-				<div className="notifications">
+				<div className="notifications frame-top">
 					<h3>Notifications:</h3>
 					{this.state.notifications.map((item, index) => (
 						<p key={index}>{item}</p>
