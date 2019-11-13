@@ -1,36 +1,43 @@
-import React, {Component} from 'react';
-// import {Button, TextField} from '@material-ui/core';
+import React from 'react';
+import { AppBar, Button, TextField, Typography } from '@material-ui/core';
 
-class SignIn extends Component {
-  state = {
-    loggedIn: false,
-    // need items here...
-  }
-
-  isLoggedIn() {
-    if (this.loggedIn) {
-      console.log('hello world')
-    }
-  }
-
-  render() {
-    return (
-      // <div>NavBar</div>
-      <div>
-        <h1>Log In to FML.fm</h1>
-      <p>{console.log('hello world')}</p>
-
-
-
-
-
-
-
-      </div>
-    )
-  }
-
-  
-}
+const SignIn = props => (
+	<div className="signin-container">
+		<AppBar position="static">
+			<Typography>Sign In</Typography>
+		</AppBar>
+		<form className="signin-form">
+			<TextField
+				variant="outlined"
+				margin="normal"
+				//required
+				fullWidth
+				id="email"
+				label="Email Address"
+				name="email"
+				autoComplete="email"
+				autoFocus
+			/>
+			<TextField 
+				variant="outlined"
+				margin="normal"
+				//required
+				fullWidth
+				name="password"
+				label="Password"
+				type="password"
+				id="password"
+				autoComplete="current-password"
+			/>
+			<Button
+				//type="submit"
+				fullWidth
+				variant="contained"
+				color="primary"
+				onClick={() => { props.signIn() }}
+			>Sign In</Button>
+		</form>
+	</div>
+)
 
 export default SignIn;
