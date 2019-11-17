@@ -1,8 +1,8 @@
 import React, {Component} from 'react';
 import OnlineSwitch from './OnlineSwitch';
-// import VolumeSlider from './VolumeSlider';
+import VolumeSlider from './VolumeSlider';
 import SoundQuality from './SoundQuality';
-import SliderCard from './SliderCard';
+// import SliderCard from './SliderCard';
 
 class Dashboard extends Component {
 
@@ -11,7 +11,7 @@ class Dashboard extends Component {
 		this.state = {
 			notifications: [],
 			online: true,
-			volume: 10,
+			volume: 80,
 			quality: 'normal',
 		};
 	}
@@ -42,23 +42,17 @@ class Dashboard extends Component {
 		this.toggleNotification( msg )
 	}
 	
-	volumeSlider = () => {
-
-		// Slider stuff
-
-		// this.setState({ volume: this.state.volume })
+	volumeSlider = ( newValue ) => {
+		this.setState({ volume: newValue })
 
 		const msg = "Listening to music at a high volume could cause long-term hearing loss."
 
-		if ((this.state.volume > 80) && !this.state.notifications.includes(msg)) {
-			this.addNotification(msg)
+		if ( ( newValue > 80) && !this.state.notifications.includes( msg ) ) {
+			this.addNotification( msg )
 		}
-		if ((this.state.volume <= 80) && this.state.notifications.includes(msg)) {
-			this.removeNotification(msg)
+		if ( ( newValue <= 80) && this.state.notifications.includes( msg ) ) {
+			this.removeNotification( msg )
 		}
-		
-		// this.toggleNotification(msg)
-
 	}
 
 	soundQuality = ( event ) => {
@@ -80,21 +74,21 @@ class Dashboard extends Component {
 
 				<div className="dashboard-control-row">
 					
-					<div class="dashboard-control-col">
+					<div className="dashboard-control-col">
 						<OnlineSwitch
 							onlineState={this.state.online}
 							onlineFunc={this.toggleOnline}>
 						</OnlineSwitch>
 					</div>
 
-					<div class="dashboard-control-col">
-						<SliderCard
+					<div className="dashboard-control-col">
+						<VolumeSlider
 							volumeState={this.state.volume}
-							volumeFunc={this.SliderCard}>
-						</SliderCard>
+							volumeFunc={this.volumeSlider}>
+						</VolumeSlider>
 					</div>
 
-					<div class="dashboard-control-col">
+					<div className="dashboard-control-col">
 						<SoundQuality 
 							qualityState={this.state.quality} 
 							qualityFunc={this.soundQuality}>	

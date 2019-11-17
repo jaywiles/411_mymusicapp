@@ -1,5 +1,6 @@
 import React from 'react';
-import { FormControl, InputLabel, MenuItem, Select, } from '@material-ui/core';
+import { FormControl, MenuItem, Select, } from '@material-ui/core';
+// import InputLabel from '@material-ui/core/InputLabel';
 
 const SoundQuality = props => (
 
