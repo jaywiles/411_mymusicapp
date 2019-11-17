@@ -1,7 +1,8 @@
 import React, {Component} from 'react';
 import OnlineSwitch from './OnlineSwitch';
-import VolumeSlider from './VolumeSlider';
+// import VolumeSlider from './VolumeSlider';
 import SoundQuality from './SoundQuality';
+import SliderCard from './SliderCard';
 
 class Dashboard extends Component {
 
@@ -45,6 +46,19 @@ class Dashboard extends Component {
 
 		// Slider stuff
 
+		// this.setState({ volume: this.state.volume })
+
+		const msg = "Listening to music at a high volume could cause long-term hearing loss."
+
+		if ((this.state.volume > 80) && !this.state.notifications.includes(msg)) {
+			this.addNotification(msg)
+		}
+		if ((this.state.volume <= 80) && this.state.notifications.includes(msg)) {
+			this.removeNotification(msg)
+		}
+		
+		// this.toggleNotification(msg)
+
 	}
 
 	soundQuality = ( event ) => {
@@ -74,10 +88,10 @@ class Dashboard extends Component {
 					</div>
 
 					<div class="dashboard-control-col">
-						<VolumeSlider
+						<SliderCard
 							volumeState={this.state.volume}
-							volumeFunc={this.volumeSlider}>
-						</VolumeSlider>
+							volumeFunc={this.SliderCard}>
+						</SliderCard>
 					</div>
 
 					<div class="dashboard-control-col">
