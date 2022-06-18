@@ -47,10 +47,10 @@ class Dashboard extends Component {
 
 		const msg = "Listening to music at a high volume could cause long-term hearing loss."
 
-		if ( ( newValue > 80) && !this.state.notifications.includes( msg ) ) {
+		if ( (newValue > 80) && !this.state.notifications.includes( msg ) ) {
 			this.addNotification( msg )
 		}
-		if ( ( newValue <= 80) && this.state.notifications.includes( msg ) ) {
+		if ( (newValue <= 80) && this.state.notifications.includes( msg ) ) {
 			this.removeNotification( msg )
 		}
 	}

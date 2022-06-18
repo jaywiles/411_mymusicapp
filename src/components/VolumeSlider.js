@@ -7,7 +7,7 @@ export default class VolumeSlider extends Component {
 		this.state = {
 			volume: this.props.volumeState,
 			mute: false,
-			previousVolume: this.props.volumeState,
+			previousVolume: this.volume,
 		}
 	}
 	
